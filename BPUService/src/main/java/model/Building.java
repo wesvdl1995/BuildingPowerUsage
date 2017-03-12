@@ -48,4 +48,32 @@ public class Building {
 	public void setListOfPowerDrainers(List<PowerDrainer> listOfPowerDrainers) {
 		this.listOfPowerDrainers = listOfPowerDrainers;
 	}
+
+	public String addDeviceToBuilding(String device, int usage) {
+		listOfPowerDrainers.add(new PowerDrainer(device, usage));
+		return device +" with usage "+usage+" was added to the building";
+	}
+
+	public String addDeviceToFloor(int floorNr, String device, int usage) {
+	    for(Floor f : listOfFloors) {
+	        if(f.getNr() == floorNr) {
+	        	return f.addPowerDrainer(new PowerDrainer(device, usage));
+	        }
+	    }
+	    return "floor does not exist";
+		
+	}
+
+	public String calculateUsageForBuilding() {
+		int total = 0;
+	    for(Floor f : listOfFloors) {
+	    	for(PowerDrainer p : f.getListOfPowerDrainers()) {
+	    		total += p.getUsage();
+	    	}
+	    }
+    	for(PowerDrainer p : listOfPowerDrainers) {
+    		total += p.getUsage();
+    	}
+		return "The total power usage of "+this.name+" is '"+total+"' KWh";
+	}
 }

@@ -32,7 +32,10 @@ public class Floor {
 	public List<PowerDrainer> getListOfPowerDrainers() {
 		return listOfPowerDrainers;
 	}
-
+	public String addPowerDrainer(PowerDrainer p){
+		listOfPowerDrainers.add(p);
+		return p.getName()+" with usage "+p.getUsage()+" was sucessfully added to floor "+this.getNr();
+	}
 	public void setListOfPowerDrainers(List<PowerDrainer> listOfPowerDrainers) {
 		this.listOfPowerDrainers = listOfPowerDrainers;
 	}

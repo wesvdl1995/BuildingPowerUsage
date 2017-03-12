@@ -21,8 +21,9 @@ public class BuildingManager {
 		return "building '"+this.building.getName()+"' has been created";
 	}
 	
-	public Building getBuilding(){
-		return this.building;
+	public String renameBuilding(String name){
+		this.building.setName(name);
+		return "The building has been renamed to "+name;
 	}
 	public void setBuilding(Building b){
 		this.building = b;
@@ -34,6 +35,17 @@ public class BuildingManager {
 		int nr = this.building.getListOfFloors().size()+1;
 		
 		return this.building.addFloor(new Floor(nr, consumers, floorsockets));
+	}
+	
+	public String addDeviceToBuilding(String device, int usage){
+		return this.building.addDeviceToBuilding(device, usage);
+	}
+	public String addDeviceToFloor(int floorNr, String device, int usage){
+		return this.building.addDeviceToFloor(floorNr, device, usage);
+	}
+
+	public String calculateUsageForBuilding() {
+		return this.building.calculateUsageForBuilding();
 	}
 	
 }
