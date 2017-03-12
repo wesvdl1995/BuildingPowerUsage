@@ -7,13 +7,18 @@ import javax.jws.soap.SOAPBinding.Style;
 
 import main.java.model.Building;
 
-@WebService
+//@WebService
 @SOAPBinding(style=Style.DOCUMENT)
 public interface BPUServiceInterface {
 	//@WebResult(name="Building")
-	@WebMethod public abstract String renameBuilding(String name);
-	@WebMethod public abstract String addFloor(int consumers, int usage);
-	@WebMethod public abstract String addDeviceToBuilding(String device, int usage);
-	@WebMethod public abstract String addDeviceToFloor(int floorNr, String device, int usage);
-	@WebMethod public abstract String calculateUsageForBuilding();
+	//@WebMethod 
+	public String renameBuilding(String name);
+	//@WebMethod 
+	public String addFloor(int consumers, int usage);
+	//@WebMethod 
+	public String addDeviceToBuilding(String device, int usage);
+	//@WebMethod 
+	public String addDeviceToFloor(int floorNr, String device, int usage);
+	//@WebMethod 
+	public String calculateUsageForBuilding();
 }

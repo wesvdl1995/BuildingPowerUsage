@@ -37,7 +37,7 @@ public class Building {
 	}
 	public String addFloor(Floor f){
 		this.listOfFloors.add(f);
-		return "Floor '"+f.getNr()+"' added to '"+this.name+"'";
+		return "Floor '"+f.getNr()+"' with '"+f.getConsumers()+"' consumers and a a socket-usage of '"+f.getListOfPowerDrainers().get(0).getUsage()+" KWh' was added to '"+this.name+"'";
 	}
 	
 	@XmlElement(name="buildingPowerDrainers")
@@ -51,7 +51,7 @@ public class Building {
 
 	public String addDeviceToBuilding(String device, int usage) {
 		listOfPowerDrainers.add(new PowerDrainer(device, usage));
-		return device +" with usage "+usage+" was added to the building";
+		return device +" with usage '"+usage+" KWh' was added to '"+this.name+"'";
 	}
 
 	public String addDeviceToFloor(int floorNr, String device, int usage) {
@@ -74,6 +74,6 @@ public class Building {
     	for(PowerDrainer p : listOfPowerDrainers) {
     		total += p.getUsage();
     	}
-		return "The total power usage of "+this.name+" is '"+total+"' KWh";
+		return "The total power usage of "+this.name+" is '"+total+" KWh'";
 	}
 }

@@ -8,7 +8,7 @@ import javax.jws.soap.SOAPBinding.Style;
 import main.java.controller.BuildingManager;
 import main.java.model.Building;
 
-@WebService(endpointInterface="main.java.endpoint.BPUServiceInterface")
+//@WebService(endpointInterface="main.java.endpoint.BPUServiceInterface")
 public class BPUService implements BPUServiceInterface {
 	BuildingManager bm = new BuildingManager();
 	

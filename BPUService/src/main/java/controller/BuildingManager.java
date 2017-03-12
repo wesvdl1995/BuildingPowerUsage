@@ -11,7 +11,9 @@ public class BuildingManager {
 	private Building building;
 	
 	public BuildingManager(){
-		createBuilding("Nameless Building");
+		if (this.building == null){
+			createBuilding("Nameless Building");
+		}
 	}
 	
 	public String createBuilding(String name){
@@ -23,7 +25,7 @@ public class BuildingManager {
 	
 	public String renameBuilding(String name){
 		this.building.setName(name);
-		return "The building has been renamed to "+name;
+		return "The building has been renamed to '"+name+"'";
 	}
 	public void setBuilding(Building b){
 		this.building = b;
