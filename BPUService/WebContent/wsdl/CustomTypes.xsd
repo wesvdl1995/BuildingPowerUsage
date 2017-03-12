@@ -2,18 +2,13 @@
 			xmlns:bpu=			"http://endpoint.java.main/schemas"
 			elementFormDefault=	"qualified"
 			targetNamespace=	"http://endpoint.java.main/schemas">
-		<!--  
-	<xs:element name="name" type="xs:string"/>
-	<xs:element name="renameBuildingReturn" type="xs:string"/>
-	<xs:element name="floornr" type="xs:int"/>
-	<xs:element name="addDeviceToFloorReturn" type="xs:string"/>
-	<xs:element name="consumers" type="xs:int"/>
-	<xs:element name="addFloorReturn" type="xs:string"/>
-	<xs:element name="calculateUsageForBuildingReturn" type="xs:string"/>
-	<xs:element name="device" type="xs:string"/>
-	<xs:element name="usage" type="xs:int"/>
-	<xs:element name="addDeviceToBuildingReturn" type="xs:string"/>
-	-->	
+	<xs:annotation>
+		<xs:appinfo>Schema voor de BPUService</xs:appinfo>
+		<xs:documentation xml:lang="nl">
+			In dit schema staan de elementen voor de Building Power Usage Service, met de bijbehorende input elementen en hun type.
+		</xs:documentation>
+	</xs:annotation>
+	
 	<xs:element name="addFloor">
 		<xs:complexType>
 			<xs:sequence>
