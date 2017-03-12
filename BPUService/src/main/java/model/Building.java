@@ -37,7 +37,7 @@ public class Building {
 	}
 	public String addFloor(Floor f){
 		this.listOfFloors.add(f);
-		return "Floor '"+f.getNr()+"' with '"+f.getConsumers()+"' consumers and a a socket-usage of '"+f.getListOfPowerDrainers().get(0).getUsage()+" KWh' was added to '"+this.name+"'";
+		return "Floor "+f.getNr()+" with '"+f.getConsumers()+"' consumers and a a socket-usage of '"+f.getListOfPowerDrainers().get(0).getUsage()+" KWh' was added to '"+this.name+"'";
 	}
 	
 	@XmlElement(name="buildingPowerDrainers")

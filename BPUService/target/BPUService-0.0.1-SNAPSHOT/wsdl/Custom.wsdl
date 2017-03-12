@@ -1,82 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<wsdl:definitions targetNamespace="http://java.main" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://java.main" xmlns:intf="http://java.main" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-<!--WSDL created by Apache Axis version: 1.4
-Built on Apr 22, 2006 (06:55:48 PDT)-->
- <wsdl:types>
-  <schema elementFormDefault="qualified" targetNamespace="http://java.main" xmlns="http://www.w3.org/2001/XMLSchema">
-   <element name="add">
-    <complexType>
-     <sequence>
-      <element name="a" type="xsd:int"/>
-      <element name="b" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="addResponse">
-    <complexType>
-     <sequence>
-      <element name="addReturn" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
-  </schema>
- </wsdl:types>
-
-   <wsdl:message name="addRequest">
-
-      <wsdl:part element="impl:add" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:message name="addResponse">
-
-      <wsdl:part element="impl:addResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
-   <wsdl:portType name="BPUServiceImpl">
-      <wsdl:operation name="add">
-         <wsdl:input message="impl:addRequest" name="addRequest" />
-         <wsdl:output message="impl:addResponse" name="addResponse" />
-      </wsdl:operation>
-   </wsdl:portType>
-
-   <wsdl:binding name="BPUServiceImplSoapBinding" type="impl:BPUServiceImpl">
-
-      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
-
-      <wsdl:operation name="add">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="addRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="addResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-   </wsdl:binding>
-
-   <wsdl:service name="BPUServiceImplService">
-
-      <wsdl:port binding="impl:BPUServiceImplSoapBinding" name="BPUServiceImpl">
-
-         <wsdlsoap:address location="http://localhost:8080/BPUService/services/BPUServiceImpl"/>
-
-      </wsdl:port>
-
-   </wsdl:service>
-
+<wsdl:definitions 
+				  xmlns:apachesoap="http://xml.apache.org/xml-soap" 
+				  xmlns:impl=	   "http://endpoint.java.main" 
+				  xmlns:intf=	   "http://endpoint.java.main" 
+				  
+				  xmlns:wsdl=	   "http://schemas.xmlsoap.org/wsdl/" 
+				  xmlns:wsdlsoap=  "http://schemas.xmlsoap.org/wsdl/soap/" 
+				  xmlns:schema=	   "http://endpoint.java.main/schemas"
+                  xmlns:tns=	   "http://endpoint.java.main/definitions"
+				  
+				  targetNamespace= "http://endpoint.java.main" >
+				  
+<wsdl:types>
+	<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+		<xsd:import namespace="http://endpoint.java.main/schemas"
+				    schemaLocation="CustomTypes.xsd"/>
+	</xsd:schema>
+</wsdl:types>
+ 
+ <wsdl:message name="addDeviceToFloorResponse">
+<wsdl:part element="schema:addDeviceToFloorResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="renameBuildingResponse">
+<wsdl:part element="schema:renameBuildingResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="calculateUsageForBuildingResponse">
+<wsdl:part element="schema:calculateUsageForBuildingResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="addDeviceToBuildingRequest">
+<wsdl:part element="schema:addDeviceToBuilding" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="addFloorRequest">
+<wsdl:part element="schema:addFloor" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="addDeviceToFloorRequest">
+<wsdl:part element="schema:addDeviceToFloor" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="renameBuildingRequest">
+<wsdl:part element="schema:renameBuilding" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="calculateUsageForBuildingRequest">
+<wsdl:part element="schema:calculateUsageForBuilding" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="addDeviceToBuildingResponse">
+<wsdl:part element="schema:addDeviceToBuildingResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:message name="addFloorResponse">
+<wsdl:part element="schema:addFloorResponse" name="parameters"></wsdl:part>
+</wsdl:message>
+<wsdl:portType name="BPUService">
+<wsdl:operation name="addFloor">
+<wsdl:input message="impl:addFloorRequest" name="addFloorRequest"></wsdl:input>
+<wsdl:output message="impl:addFloorResponse" name="addFloorResponse"></wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addDeviceToFloor">
+<wsdl:input message="impl:addDeviceToFloorRequest" name="addDeviceToFloorRequest"></wsdl:input>
+<wsdl:output message="impl:addDeviceToFloorResponse" name="addDeviceToFloorResponse"></wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="renameBuilding">
+<wsdl:input message="impl:renameBuildingRequest" name="renameBuildingRequest"></wsdl:input>
+<wsdl:output message="impl:renameBuildingResponse" name="renameBuildingResponse"></wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="calculateUsageForBuilding">
+<wsdl:input message="impl:calculateUsageForBuildingRequest" name="calculateUsageForBuildingRequest"></wsdl:input>
+<wsdl:output message="impl:calculateUsageForBuildingResponse" name="calculateUsageForBuildingResponse"></wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addDeviceToBuilding">
+<wsdl:input message="impl:addDeviceToBuildingRequest" name="addDeviceToBuildingRequest"></wsdl:input>
+<wsdl:output message="impl:addDeviceToBuildingResponse" name="addDeviceToBuildingResponse"></wsdl:output>
+</wsdl:operation>
+</wsdl:portType>
+<wsdl:binding name="BPUServiceSoapBinding" type="impl:BPUService">
+<wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+<wsdl:operation name="addFloor">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="addFloorRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="addFloorResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addDeviceToFloor">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="addDeviceToFloorRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="addDeviceToFloorResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="renameBuilding">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="renameBuildingRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="renameBuildingResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="calculateUsageForBuilding">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="calculateUsageForBuildingRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="calculateUsageForBuildingResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+<wsdl:operation name="addDeviceToBuilding">
+<wsdlsoap:operation soapAction=""/>
+<wsdl:input name="addDeviceToBuildingRequest">
+<wsdlsoap:body use="literal"/>
+</wsdl:input>
+<wsdl:output name="addDeviceToBuildingResponse">
+<wsdlsoap:body use="literal"/>
+</wsdl:output>
+</wsdl:operation>
+</wsdl:binding>
+<wsdl:service name="BPUServiceService">
+<wsdl:port binding="impl:BPUServiceSoapBinding" name="BPUService">
+<wsdlsoap:address location="http://localhost:8080/BPUService/services/BPUService"/>
+</wsdl:port>
+</wsdl:service>
 </wsdl:definitions>

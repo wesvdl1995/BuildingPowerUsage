@@ -20,32 +20,25 @@
       <parameter name="className" value="main.java.endpoint.BPUServiceSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="BPUService"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation name="createBuilding" qname="operNS:createBuilding" xmlns:operNS="http://endpoint.java.main" returnQName="retNS:createBuildingReturn" xmlns:retNS="http://endpoint.java.main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:name" xmlns:pns="http://endpoint.java.main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getBuilding" qname="operNS:getBuilding" xmlns:operNS="http://endpoint.java.main" returnQName="retNS:getBuildingReturn" xmlns:retNS="http://endpoint.java.main" returnType="rtns:anyType" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-      </operation>
       <operation name="addFloor" qname="operNS:addFloor" xmlns:operNS="http://endpoint.java.main" returnQName="retNS:addFloorReturn" xmlns:retNS="http://endpoint.java.main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:consumers" xmlns:pns="http://endpoint.java.main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:usage" xmlns:pns="http://endpoint.java.main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <parameter name="allowedMethods" value="createBuilding addFloor getBuilding"/>
+      <operation name="addDeviceToFloor" qname="operNS:addDeviceToFloor" xmlns:operNS="http://endpoint.java.main" returnQName="retNS:addDeviceToFloorReturn" xmlns:retNS="http://endpoint.java.main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:floorNr" xmlns:pns="http://endpoint.java.main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:device" xmlns:pns="http://endpoint.java.main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:usage" xmlns:pns="http://endpoint.java.main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="renameBuilding" qname="operNS:renameBuilding" xmlns:operNS="http://endpoint.java.main" returnQName="retNS:renameBuildingReturn" xmlns:retNS="http://endpoint.java.main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://endpoint.java.main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="calculateUsageForBuilding" qname="operNS:calculateUsageForBuilding" xmlns:operNS="http://endpoint.java.main" returnQName="retNS:calculateUsageForBuildingReturn" xmlns:retNS="http://endpoint.java.main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="addDeviceToBuilding" qname="operNS:addDeviceToBuilding" xmlns:operNS="http://endpoint.java.main" returnQName="retNS:addDeviceToBuildingReturn" xmlns:retNS="http://endpoint.java.main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:device" xmlns:pns="http://endpoint.java.main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:usage" xmlns:pns="http://endpoint.java.main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="addDeviceToFloor addDeviceToBuilding calculateUsageForBuilding addFloor renameBuilding"/>
 
-      <typeMapping
-        xmlns:ns="http://endpoint.java.main"
-        qname="ns:>addFloor"
-        type="java:main.java.endpoint.AddFloor"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
-      <typeMapping
-        xmlns:ns="http://endpoint.java.main"
-        qname="ns:>addFloorResponse"
-        type="java:main.java.endpoint.AddFloorResponse"
-        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
-        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
-        encodingStyle=""
-      />
   </service>
 </deployment>

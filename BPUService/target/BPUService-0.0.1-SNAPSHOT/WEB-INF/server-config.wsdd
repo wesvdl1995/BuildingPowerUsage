@@ -34,12 +34,39 @@
  </ns1:service>
  <ns1:service name="BPUServiceInterface" provider="java:RPC" style="document" use="literal">
   <ns1:parameter name="allowedMethods" value="*"/>
-  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlPortType" value="BPUServiceInterface"/>
-  <ns1:parameter name="className" value="main.java.endpoint.BPUServiceInterface"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
   <ns1:parameter name="wsdlServicePort" value="BPUServiceInterface"/>
+  <ns1:parameter name="className" value="main.java.endpoint.BPUServiceInterface"/>
   <ns1:parameter name="wsdlTargetNamespace" value="http://endpoint.java.main"/>
   <ns1:parameter name="wsdlServiceElement" value="BPUServiceInterfaceService"/>
+ </ns1:service>
+ <ns1:service name="BPUService" provider="java:RPC" style="wrapped" use="literal">
+  <ns2:operation name="addFloor" qname="ns1:addFloor" returnQName="ns1:addFloorReturn" returnType="xsd:string" soapAction="" xmlns:ns1="http://endpoint.java.main" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:ns2="http://xml.apache.org/axis/wsdd/">
+   <ns2:parameter qname="ns1:consumers" type="xsd:int"/>
+   <ns2:parameter qname="ns1:usage" type="xsd:int"/>
+  </ns2:operation>
+  <ns1:operation name="addDeviceToFloor" qname="ns2:addDeviceToFloor" returnQName="ns2:addDeviceToFloorReturn" returnType="xsd:string" soapAction="" xmlns:ns2="http://endpoint.java.main" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns2:floorNr" type="xsd:int"/>
+   <ns1:parameter qname="ns2:device" type="xsd:string"/>
+   <ns1:parameter qname="ns2:usage" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:operation name="renameBuilding" qname="ns3:renameBuilding" returnQName="ns3:renameBuildingReturn" returnType="xsd:string" soapAction="" xmlns:ns3="http://endpoint.java.main" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns3:name" type="xsd:string"/>
+  </ns1:operation>
+  <ns1:operation name="calculateUsageForBuilding" qname="ns4:calculateUsageForBuilding" returnQName="ns4:calculateUsageForBuildingReturn" returnType="xsd:string" soapAction="" xmlns:ns4="http://endpoint.java.main" xmlns:xsd="http://www.w3.org/2001/XMLSchema"/>
+  <ns1:operation name="addDeviceToBuilding" qname="ns5:addDeviceToBuilding" returnQName="ns5:addDeviceToBuildingReturn" returnType="xsd:string" soapAction="" xmlns:ns5="http://endpoint.java.main" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+   <ns1:parameter qname="ns5:device" type="xsd:string"/>
+   <ns1:parameter qname="ns5:usage" type="xsd:int"/>
+  </ns1:operation>
+  <ns1:parameter name="allowedMethods" value="addDeviceToFloor addDeviceToBuilding calculateUsageForBuilding addFloor renameBuilding"/>
+  <ns1:parameter name="typeMappingVersion" value="1.2"/>
+  <ns1:parameter name="wsdlPortType" value="BPUService"/>
+  <ns1:parameter name="className" value="main.java.endpoint.BPUService"/>
+  <ns1:parameter name="wsdlServicePort" value="BPUService"/>
+  <ns1:parameter name="schemaQualified" value="http://endpoint.java.main"/>
+  <ns1:parameter name="wsdlTargetNamespace" value="http://endpoint.java.main"/>
+  <ns1:parameter name="wsdlServiceElement" value="BPUServiceService"/>
  </ns1:service>
  <ns1:transport name="http">
   <ns1:requestFlow>

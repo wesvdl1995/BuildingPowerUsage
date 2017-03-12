@@ -34,7 +34,7 @@ public class Floor {
 	}
 	public String addPowerDrainer(PowerDrainer p){
 		listOfPowerDrainers.add(p);
-		return p.getName()+" with usage "+p.getUsage()+" was sucessfully added to floor "+this.getNr();
+		return "'"+p.getName()+"' with usage '"+p.getUsage()+" KWh' was sucessfully added to floor "+this.getNr();
 	}
 	public void setListOfPowerDrainers(List<PowerDrainer> listOfPowerDrainers) {
 		this.listOfPowerDrainers = listOfPowerDrainers;
