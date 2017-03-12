@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://endpoint.java.main" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://endpoint.java.main" xmlns:intf="http://endpoint.java.main" xmlns:tns1="http://model.java.main" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://endpoint.java.main" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://model.java.main"/>
+   <element name="createBuilding">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createBuildingResponse">
+    <complexType>
+     <sequence>
+      <element name="createBuildingReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getBuilding">
+    <complexType/>
+   </element>
+   <element name="getBuildingResponse">
+    <complexType>
+     <sequence>
+      <element name="getBuildingReturn" type="xsd:anyType"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addFloor">
+    <complexType>
+     <sequence>
+      <element name="consumers" type="xsd:int"/>
+      <element name="usage" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="addFloorResponse">
+    <complexType>
+     <sequence>
+      <element name="addFloorReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getBuildingRequest">
+
+      <wsdl:part element="impl:getBuilding" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createBuildingResponse">
+
+      <wsdl:part element="impl:createBuildingResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getBuildingResponse">
+
+      <wsdl:part element="impl:getBuildingResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createBuildingRequest">
+
+      <wsdl:part element="impl:createBuilding" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addFloorRequest">
+
+      <wsdl:part element="impl:addFloor" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="addFloorResponse">
+
+      <wsdl:part element="impl:addFloorResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="BPUService">
+
+      <wsdl:operation name="createBuilding">
+
+         <wsdl:input message="impl:createBuildingRequest" name="createBuildingRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createBuildingResponse" name="createBuildingResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBuilding">
+
+         <wsdl:input message="impl:getBuildingRequest" name="getBuildingRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getBuildingResponse" name="getBuildingResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addFloor">
+
+         <wsdl:input message="impl:addFloorRequest" name="addFloorRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:addFloorResponse" name="addFloorResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="BPUServiceSoapBinding" type="impl:BPUService">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="createBuilding">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createBuildingRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createBuildingResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getBuilding">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getBuildingRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getBuildingResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="addFloor">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="addFloorRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="addFloorResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="BPUServiceService">
+
+      <wsdl:port binding="impl:BPUServiceSoapBinding" name="BPUService">
+
+         <wsdlsoap:address location="http://localhost:8080/BPUService/services/BPUService"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

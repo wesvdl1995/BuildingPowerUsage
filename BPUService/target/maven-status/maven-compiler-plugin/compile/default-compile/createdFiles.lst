@@ -1,0 +1,7 @@
+main\java\model\Building.class
+main\java\model\Floor.class
+main\java\endpoint\BPUService.class
+main\java\controller\BuildingManager.class
+main\java\endpoint\BPUServiceInterface.class
+main\java\model\PowerDrainer.class
+main\java\controller\test.class

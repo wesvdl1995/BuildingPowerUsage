@@ -1,0 +1,51 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from BPUServiceService WSDL service -->
+
+  <service name="BPUService" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://endpoint.java.main"/>
+      <parameter name="wsdlServiceElement" value="BPUServiceService"/>
+      <parameter name="schemaQualified" value="http://endpoint.java.main"/>
+      <parameter name="wsdlServicePort" value="BPUService"/>
+      <parameter name="className" value="main.java.endpoint.BPUServiceSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="BPUService"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="createBuilding" qname="operNS:createBuilding" xmlns:operNS="http://endpoint.java.main" returnQName="retNS:createBuildingReturn" xmlns:retNS="http://endpoint.java.main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://endpoint.java.main" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getBuilding" qname="operNS:getBuilding" xmlns:operNS="http://endpoint.java.main" returnQName="retNS:getBuildingReturn" xmlns:retNS="http://endpoint.java.main" returnType="rtns:anyType" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <operation name="addFloor" qname="operNS:addFloor" xmlns:operNS="http://endpoint.java.main" returnQName="retNS:addFloorReturn" xmlns:retNS="http://endpoint.java.main" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:consumers" xmlns:pns="http://endpoint.java.main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:usage" xmlns:pns="http://endpoint.java.main" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="createBuilding addFloor getBuilding"/>
+
+      <typeMapping
+        xmlns:ns="http://endpoint.java.main"
+        qname="ns:>addFloor"
+        type="java:main.java.endpoint.AddFloor"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+      <typeMapping
+        xmlns:ns="http://endpoint.java.main"
+        qname="ns:>addFloorResponse"
+        type="java:main.java.endpoint.AddFloorResponse"
+        serializer="org.apache.axis.encoding.ser.BeanSerializerFactory"
+        deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory"
+        encodingStyle=""
+      />
+  </service>
+</deployment>
